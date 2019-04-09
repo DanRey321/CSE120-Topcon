@@ -1,129 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="com.autodesk.forge.forgeviewer_android_sample.MainActivity">
 
-    tools:context=".MainActivity"
-    android:transitionGroup="true">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textview"
-        android:layout_centerHorizontal="true"
-        android:text="Bluetooth"
-        android:textColor="@color/colorPrimary"
-        android:textSize="35dp" />
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="abcdg">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:theme="@style/Base.TextAppearance.AppCompat" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="118dp"
-        android:layout_height="55dp"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="258dp"
-        android:layout_marginLeft="258dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:background="@color/colorPrimary"
-        android:clickable="true"
-        android:onClick="on"
-        android:text="Turn On" />
+            <Button
+                android:id="@+id/btnGetToken"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Get Token" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="118dp"
-        android:layout_height="55dp"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="147dp"
-        android:layout_marginLeft="147dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginRight="146dp"
-        android:layout_marginBottom="-126dp"
-        android:background="@color/colorPrimary"
-        android:onClick="visible"
-        android:text="Get visible" />
+            <TextView
+                android:id="@+id/textViewToken"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                android:scrollbars="horizontal"
+                android:text="Token" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="118dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="145dp"
-        android:layout_marginLeft="145dp"
-        android:layout_marginTop="79dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginRight="148dp"
-        android:background="@color/colorPrimary"
-        android:onClick="list"
-        android:text="List devices" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="118dp"
-        android:layout_height="55dp"
-        android:layout_below="@+id/button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="-60dp"
-        android:layout_marginEnd="265dp"
-        android:layout_marginRight="265dp"
-        android:background="@color/colorPrimary"
-        android:onClick="off"
-        android:text="turn off" />
+            <Button
+                android:id="@+id/btnCreateBucket"
+                android:layout_width="208dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Create Bucket" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="237dp"
-        android:layout_height="347dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-261dp"
-        android:layout_marginLeft="-261dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="0dp" />
+            <EditText
+                android:id="@+id/textViewBucketName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="androidtestbucket"
+                android:inputType="text"
+                android:text="androidtestbucket" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button4"
-        android:layout_alignStart="@+id/listView"
-        android:layout_alignLeft="@+id/listView"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="126dp"
-        android:text="Paired devices:"
-        android:textColor="@color/colorPrimary"
-        android:textSize="25dp" />
+        </LinearLayout>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBrowserModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Browser Model" />
+
+            <TextView
+                android:id="@+id/textViewModelName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Model Name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnUploadModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Upload Model" />
+
+            <TextView
+                android:id="@+id/textViewUrn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Urn" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPostJob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Post Job" />
+
+            <TextView
+                android:id="@+id/textviewpostjob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Job Status" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnShowthumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Show Thumbnail" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgthumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="244dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/topcon" />
+
+        <Button
+            android:id="@+id/btndisplaymodel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Launch Viewer" />
+
+        <EditText
+            android:id="@+id/textViewStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+    </android.support.design.widget.AppBarLayout>
+
+</android.support.design.widget.CoordinatorLayout>
