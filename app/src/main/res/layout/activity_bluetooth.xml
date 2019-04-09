@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity"
+    android:transitionGroup="true">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Bluetooth"
+        android:textColor="@color/colorPrimary"
+        android:textSize="35dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/Base.TextAppearance.AppCompat" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="118dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="258dp"
+        android:layout_marginLeft="258dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:onClick="on"
+        android:text="Turn On" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="118dp"
+        android:layout_height="55dp"
+        android:layout_alignBottom="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="147dp"
+        android:layout_marginLeft="147dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginRight="146dp"
+        android:layout_marginBottom="-126dp"
+        android:background="@color/colorPrimary"
+        android:onClick="visible"
+        android:text="Get visible" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="118dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="145dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:background="@color/colorPrimary"
+        android:onClick="list"
+        android:text="List devices" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="118dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="-60dp"
+        android:layout_marginEnd="265dp"
+        android:layout_marginRight="265dp"
+        android:background="@color/colorPrimary"
+        android:onClick="off"
+        android:text="turn off" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="237dp"
+        android:layout_height="347dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/button"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-261dp"
+        android:layout_marginLeft="-261dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="0dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button4"
+        android:layout_alignStart="@+id/listView"
+        android:layout_alignLeft="@+id/listView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="126dp"
+        android:text="Paired devices:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25dp" />
+
+</RelativeLayout>

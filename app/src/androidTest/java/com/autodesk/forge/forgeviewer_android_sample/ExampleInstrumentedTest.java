@@ -1,4 +1,4 @@
-package com.example.danielreyes.topconp1;
+package com.autodesk.forge.forgeviewer_android_sample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.danielreyes.topconp1", appContext.getPackageName());
+        assertEquals("com.autodesk.forge.forgeviewer_android_sample", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.danielreyes.topconp1;
+package com.autodesk.forge.forgeviewer_android_sample;
 
 import org.junit.Test;
 

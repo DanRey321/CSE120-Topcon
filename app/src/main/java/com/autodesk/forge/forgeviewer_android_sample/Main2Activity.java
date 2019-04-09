@@ -1,42 +1,54 @@
-package com.example.danielreyes.topconp1;
+package com.autodesk.forge.forgeviewer_android_sample;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Set;
 
-public class MainActivity extends Activity {
+public class Main2Activity extends AppCompatActivity {
 
+    private Button button;
     Button b1,b2,b3,b4;
     private BluetoothAdapter BA;
-    private Set<BluetoothDevice>pairedDevices;
+    private Set<BluetoothDevice> pairedDevices;
     ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
+
         b1 = (Button) findViewById(R.id.button);
-        b2=(Button)findViewById(R.id.button2);
-        b3=(Button)findViewById(R.id.button3);
-        b4=(Button)findViewById(R.id.button4);
+        b2 = (Button) findViewById(R.id.button2);
+        b3 = (Button) findViewById(R.id.button3);
+        b4 = (Button) findViewById(R.id.button4);
 
         BA = BluetoothAdapter.getDefaultAdapter();
         lv = (ListView)findViewById(R.id.listView);
 
+
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openActivity();
+            }
+        });
     }
 
+    public void openActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
     public void on(View v)
     {
         if (!BA.isEnabled()) {
@@ -73,5 +85,3 @@ public class MainActivity extends Activity {
         lv.setAdapter(adapter);
     }
 }
-
-
