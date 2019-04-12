@@ -97,7 +97,7 @@ public class AsyncUpload extends AsyncTask<List<String>, String, Void>  {
             Global.base64URN = base64Str;
 
 
-            responseStr = "Upload File Succeeded!";
+            responseStr = base64Str;
         }
         catch(ApiException ae){
             responseStr ="Failed to upload file " + ae.toString();

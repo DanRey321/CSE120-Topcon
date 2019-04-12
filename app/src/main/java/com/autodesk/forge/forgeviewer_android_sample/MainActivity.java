@@ -43,6 +43,8 @@ import android.widget.Toast;
 
 //import javax.ws.rs.core.UriBuilder;
 //import java.awt.*;
+import org.apache.commons.codec.binary.Base64;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -157,20 +159,23 @@ public class MainActivity extends AppCompatActivity {
         btn_display_model.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                TextView urntxt = (TextView)findViewById(R.id.textViewUrn);
+                TextView tokentxt = (TextView)findViewById(R.id.textViewToken);
+
+
+                //TextView urntxt = Global.URN;
+                //build the url using helper page provided by DevTech, ADN
+                //format:
+                //http://viewer.autodesk.io/node/view-helper?urn=someUrn&token=yourGeneratedToken
                 String viewUrl = "https://models.autodesk.io/view.html?";
-
-                TextView txtViewToken = (TextView)findViewById(R.id.textViewToken);
-                TextView txtViewUrn = (TextView)findViewById(R.id.textViewUrn);
-
-
-                viewUrl = viewUrl + "token=" + txtViewToken.getText().toString();
-                viewUrl = viewUrl + "&urn=" + txtViewUrn.getText().toString();
-
+                viewUrl = viewUrl + "urn=" + urntxt.getText().toString();
+                viewUrl = viewUrl + "&token=" + tokentxt.getText().toString();
 
                 //start the browser activity
                 Intent viewModelIntent = new
-                       Intent("android.intent.action.VIEW",Uri.parse(viewUrl));
+                        Intent("android.intent.action.VIEW",Uri.parse(viewUrl));
                 startActivity(viewModelIntent);
+
 
 
 
