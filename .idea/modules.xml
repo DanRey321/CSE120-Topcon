@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CSE120-Topcon.iml" filepath="$PROJECT_DIR$/CSE120-Topcon.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ViewerTopcon.iml" filepath="$PROJECT_DIR$/ViewerTopcon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

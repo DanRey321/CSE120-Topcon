@@ -163,6 +163,13 @@
             android:ems="10"
             android:inputType="textMultiLine" />
 
+        <Button
+            android:id="@+id/ViewerTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ViewerTest" />
+
     </android.support.design.widget.AppBarLayout>
 
 </android.support.design.widget.CoordinatorLayout>

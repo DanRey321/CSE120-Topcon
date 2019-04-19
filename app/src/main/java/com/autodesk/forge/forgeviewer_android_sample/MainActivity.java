@@ -61,12 +61,21 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_post_job;
     private Button btn_show_thumbnail;
     private Button btn_display_model;
-
+    private Button goto_butt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        goto_butt = (Button)findViewById(R.id.ViewerTest);
+        goto_butt.setOnClickListener(new View.OnClickListener() {
+                                         // @Override
+                                         public void onClick(View v) {
+                                             openViewer();
+                                         }
+                                     }
+        );
 
         btn_get_token = (Button)findViewById(R.id.btnGetToken);
         btn_get_token.setOnClickListener(new View.OnClickListener() {
@@ -183,6 +192,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void openViewer()
+    {
+        Intent intent = new Intent(this, ViewerActivity.class);
+        startActivity(intent);
     }
 
     private String[] mFileList;
