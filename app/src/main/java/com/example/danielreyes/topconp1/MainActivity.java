@@ -1,77 +1,311 @@
-package com.example.danielreyes.topconp1;
+package com.autodesk.forge.forgeviewer_android_sample;
 
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-
-import android.content.Intent;
+import android.*;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.app.ProgressDialog;
+import android.os.Environment;
+import android.app.Dialog;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.pm.*;
+import android.support.v4.content.*;
+import android.support.v4.app.ActivityCompat;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
-import android.widget.ArrayAdapter;
+
+
+
+import com.autodesk.client.ApiException;
+import com.autodesk.client.ApiResponse;
+import com.autodesk.client.api.BucketsApi;
+import com.autodesk.client.api.DerivativesApi;
+import com.autodesk.client.api.ObjectsApi;
+import com.autodesk.client.auth.Credentials;
+import com.autodesk.client.auth.OAuth2TwoLegged;
+import com.autodesk.client.model.*;
+import com.autodesk.client.model.Manifest;
+
 import android.widget.Button;
-import android.widget.ListView;
-
+import android.widget.TextView;
 import android.widget.Toast;
+
+
+//import javax.ws.rs.core.UriBuilder;
+//import java.awt.*;
+import org.apache.commons.codec.binary.Base64;
+
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.Arrays;
+import java.util.List;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
-    Button b1,b2,b3,b4;
-    private BluetoothAdapter BA;
-    private Set<BluetoothDevice>pairedDevices;
-    ListView lv;
+    private Button btn_get_token;
+    private Button btn_create_bucket;
+    private Button btn_browser_model;
+    private Button btn_upload_model;
+    private Button btn_post_job;
+    private Button btn_show_thumbnail;
+    private Button btn_display_model;
+    private Button goto_butt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        b1 = (Button) findViewById(R.id.button);
-        b2=(Button)findViewById(R.id.button2);
-        b3=(Button)findViewById(R.id.button3);
-        b4=(Button)findViewById(R.id.button4);
 
-        BA = BluetoothAdapter.getDefaultAdapter();
-        lv = (ListView)findViewById(R.id.listView);
+        goto_butt = (Button)findViewById(R.id.ViewerTest);
+        goto_butt.setOnClickListener(new View.OnClickListener() {
+                                      // @Override
+                                      public void onClick(View v) {
+                                          openViewer();
+                                      }
+            }
+        );
+
+
+
+        btn_get_token = (Button)findViewById(R.id.btnGetToken);
+        btn_get_token.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                try {
+
+                    ProgressDialog progress = new ProgressDialog(MainActivity.this);
+                    AsyncGetToken task_gettoken =  new AsyncGetToken(progress,MainActivity.this);
+                    task_gettoken.execute();
+                }
+                catch(Exception ex){
+
+                    Toast.makeText(
+                            getApplicationContext(),
+                            ex.toString(),
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        btn_create_bucket = (Button)findViewById(R.id.btnCreateBucket);
+        btn_create_bucket.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                try {
+
+                    ProgressDialog progress = new ProgressDialog(MainActivity.this);
+                    AsyncCreateBucket task_createtoken =  new AsyncCreateBucket(progress,MainActivity.this);
+                    task_createtoken.execute();
+                }
+                catch(Exception ex){
+
+                    Toast.makeText(
+                            getApplicationContext(),
+                            ex.toString(),
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        btn_browser_model = (Button)findViewById(R.id.btnBrowserModel);
+        btn_browser_model.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                loadFileList();
+                myFileDialog(DIALOG_LOAD_FILE).show();
+            }
+        });
+
+        btn_upload_model = (Button)findViewById(R.id.btnUploadModel);
+        btn_upload_model.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                if (mChosenFile==null || mChosenFile=="")
+                    return;
+
+                ProgressDialog progress = new ProgressDialog(MainActivity.this);
+                AsyncUpload task_upload =  new AsyncUpload(progress,MainActivity.this);
+                 task_upload.execute();
+
+            }
+        });
+
+        btn_post_job = (Button)findViewById(R.id.btnPostJob);
+        btn_post_job.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+
+                ProgressDialog progress = new ProgressDialog(MainActivity.this);
+                AsyncPostJob task_post_job =  new AsyncPostJob(progress,MainActivity.this);
+                 task_post_job.execute();
+
+            }
+        });
+
+        btn_show_thumbnail = (Button)findViewById(R.id.btnShowthumbnail);
+        btn_show_thumbnail.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+
+                ProgressDialog progress = new ProgressDialog(MainActivity.this);
+                AsyncThumbnail task_thumbnail =  new AsyncThumbnail(progress,MainActivity.this);
+                 task_thumbnail.execute();
+
+            }
+        });
+
+        btn_display_model = (Button)findViewById(R.id.btndisplaymodel);
+        btn_display_model.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                TextView urntxt = (TextView)findViewById(R.id.textViewUrn);
+                TextView tokentxt = (TextView)findViewById(R.id.textViewToken);
+
+
+                //TextView urntxt = Global.URN;
+                //build the url using helper page provided by DevTech, ADN
+                //format:
+                //http://viewer.autodesk.io/node/view-helper?urn=someUrn&token=yourGeneratedToken
+                String viewUrl = "https://models.autodesk.io/view.html?";
+                viewUrl = viewUrl + "urn=" + urntxt.getText().toString();
+                viewUrl = viewUrl + "&token=" + tokentxt.getText().toString();
+
+                //start the browser activity
+                Intent viewModelIntent = new
+                        Intent("android.intent.action.VIEW",Uri.parse(viewUrl));
+                startActivity(viewModelIntent);
+
+
+
+
+            }
+        });
+
 
     }
 
-    public void on(View v)
+    public void openViewer()
     {
-        if (!BA.isEnabled()) {
-            Intent turnOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(turnOn, 0);
-            Toast.makeText(getApplicationContext(), "Turned on",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, ViewerActivity.class);
+        startActivity(intent);
+    }
+
+    private String[] mFileList;
+    private String mChosenFile;
+    private static final int DIALOG_LOAD_FILE = 1000;
+
+    private void loadFileList() {
+
+
+        //String xx = Environment.getExternalStorageDirectory() + "/";
+        File mPath = new File(Environment.getExternalStorageDirectory() + "/DCIM/" );//+
+                //getApplicationContext().getString(R.string.app_name));
+
+         try {
+            mPath.mkdirs();
+        } catch (SecurityException e) {
+            //Log.e(TAG, "unable to write on the sd card " + e.toString());
+        }
+        if (mPath.exists()) {
+            FilenameFilter filter = new FilenameFilter() {
+                @Override
+                public boolean accept(File dir, String filename) {
+                    //add your filter if needed
+                    File sel = new File(dir, filename);
+                    return true;
+                }
+            };
+            mFileList = mPath.list(filter);
         } else {
-            Toast.makeText(getApplicationContext(), "Already on", Toast.LENGTH_LONG).show();
+            mFileList= new String[0];
         }
     }
 
-    public void off(View v){
-        BA.disable();
-        Toast.makeText(getApplicationContext(), "Turned off" ,Toast.LENGTH_LONG).show();
+    protected Dialog myFileDialog(int id) {
+        Dialog dialog = null;
+        AlertDialog.Builder builder = new Builder(this);
+
+        switch (id) {
+            case DIALOG_LOAD_FILE:
+                builder.setTitle("Choose your file");
+                if (mFileList == null) {
+                    dialog = builder.create();
+                    return dialog;
+                }
+                builder.setItems(mFileList, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        mChosenFile = mFileList[which];
+                        TextView modelName = (TextView)findViewById(R.id.textViewModelName);
+                        modelName.setText(mChosenFile);
+                    }
+                });
+
+                break;
+        }
+        dialog = builder.show();
+        return dialog;
     }
 
 
-    public  void visible(View v){
-        Intent getVisible = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-        startActivityForResult(getVisible, 0);
+    // In Android 6.0 Marshmallow, application will not be granted any permission at installation time.
+    // Instead, application has to ask user for a permission one-by-one at runtime.
+    //https://inthecheesefactory.com/blog/things-you-need-to-know-about-android-m-permission-developer-edition/en
+
+    // p: the specific permission
+    // e.g. android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+
+    //conserve in case of use.
+    private void grantPermission(String p)
+    {
+         int REQUEST_CODE_ASK_PERMISSIONS = 124;
+
+
+        int hasWriteContactsPermission = ContextCompat.checkSelfPermission(
+                getApplicationContext(),
+                p);
+
+
+        //grant this specific permission
+        if (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[] {p},
+                    REQUEST_CODE_ASK_PERMISSIONS);
+            return;
+        }
+
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
-    public void list(View v){
-        pairedDevices = BA.getBondedDevices();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-        ArrayList list = new ArrayList();
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
 
-        for(BluetoothDevice bt : pairedDevices) list.add(bt.getName());
-        Toast.makeText(getApplicationContext(), "Showing Paired Devices",Toast.LENGTH_SHORT).show();
-
-        final ArrayAdapter adapter = new  ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
-
-        lv.setAdapter(adapter);
+        return super.onOptionsItemSelected(item);
     }
 }
-
-
