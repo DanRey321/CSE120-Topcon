@@ -4,6 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main3Activity">
+    tools:context=".ViewerActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="4dp">
+
+        <Button
+            android:id="@+id/btnBrowserModel"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Browser Model" />
+
+        <TextView
+            android:id="@+id/textViewModelName"
+            android:layout_width="548dp"
+            android:layout_height="29dp"
+            android:layout_weight="1"
+            android:text="Model Name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="4dp">
+
+        <Button
+            android:id="@+id/btnBrowserMode0"
+            android:layout_width="484dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Browser Model" />
+
+        <TextView
+            android:id="@+id/textViewModelName0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Model Name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="799dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="130dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btnBrowserModel1"
+            android:layout_width="488dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Browser Model" />
+
+        <TextView
+            android:id="@+id/textViewModelName1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Model Name" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="687dp"
+        android:layout_height="71dp"
+        android:text="Multiple Models"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="21dp" />
 </android.support.constraint.ConstraintLayout>
