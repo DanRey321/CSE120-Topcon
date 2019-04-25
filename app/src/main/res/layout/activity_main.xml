@@ -9,8 +9,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:background="abcdg">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -162,6 +161,13 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/ViewerTest"
+            android:layout_width="288dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ViewerTest" />
 
     </android.support.design.widget.AppBarLayout>
 

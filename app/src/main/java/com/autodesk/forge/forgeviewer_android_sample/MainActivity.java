@@ -43,6 +43,8 @@ import android.widget.Toast;
 
 //import javax.ws.rs.core.UriBuilder;
 //import java.awt.*;
+import org.apache.commons.codec.binary.Base64;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,12 +61,32 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_post_job;
     private Button btn_show_thumbnail;
     private Button btn_display_model;
-
+    private Button goto_butt;
+    //private Button btn_multiFiles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        goto_butt = (Button)findViewById(R.id.ViewerTest);
+        goto_butt.setOnClickListener(new View.OnClickListener() {
+                                         // @Override
+                                         public void onClick(View v) {
+                                             openViewer();
+
+                                         }
+                                     }
+        );
+
+        //btn_multiFiles = (Button)findViewById(R.id.ViewerTest);
+       // btn_multiFiles.setOnClickListener(new View.OnClickListener() {
+                                         // @Override
+       //                                  public void onClick(View v) {
+      //                                       openViewer();
+       //                                  }
+        //                             }
+       // );
 
         btn_get_token = (Button)findViewById(R.id.btnGetToken);
         btn_get_token.setOnClickListener(new View.OnClickListener() {
@@ -157,20 +179,23 @@ public class MainActivity extends AppCompatActivity {
         btn_display_model.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                TextView urntxt = (TextView)findViewById(R.id.textViewUrn);
+                TextView tokentxt = (TextView)findViewById(R.id.textViewToken);
+
+
+                //TextView urntxt = Global.URN;
+                //build the url using helper page provided by DevTech, ADN
+                //format:
+                //http://viewer.autodesk.io/node/view-helper?urn=someUrn&token=yourGeneratedToken
                 String viewUrl = "https://models.autodesk.io/view.html?";
-
-                TextView txtViewToken = (TextView)findViewById(R.id.textViewToken);
-                TextView txtViewUrn = (TextView)findViewById(R.id.textViewUrn);
-
-
-                viewUrl = viewUrl + "token=" + txtViewToken.getText().toString();
-                viewUrl = viewUrl + "&urn=" + txtViewUrn.getText().toString();
-
+                viewUrl = viewUrl + "urn=" + urntxt.getText().toString();
+                viewUrl = viewUrl + "&token=" + tokentxt.getText().toString();
 
                 //start the browser activity
                 Intent viewModelIntent = new
-                       Intent("android.intent.action.VIEW",Uri.parse(viewUrl));
+                        Intent("android.intent.action.VIEW",Uri.parse(viewUrl));
                 startActivity(viewModelIntent);
+
 
 
 
@@ -180,7 +205,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+
+    public void openViewer()
+    {
+        Intent intent = new Intent(this, ViewerActivity.class);
+        startActivity(intent);
+
+    }
+
     private String[] mFileList;
+
     private String mChosenFile;
     private static final int DIALOG_LOAD_FILE = 1000;
 
@@ -206,8 +242,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
             mFileList = mPath.list(filter);
+
         } else {
             mFileList= new String[0];
+
         }
     }
 

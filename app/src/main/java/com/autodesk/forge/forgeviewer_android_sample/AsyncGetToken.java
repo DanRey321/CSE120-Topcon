@@ -74,11 +74,12 @@ public class AsyncGetToken extends AsyncTask<List<String>, String, Void>  {
 
             statusView.setText(values[0]);
             String tokenStr = values[1];
+            //String tokenStrReturn = values[1];
 
-            if(tokenStr.length() > 10){
-                tokenStr = tokenStr.substring(0,10);
-                tokenStr += ".........";
-            }
+            //if(tokenStr.length() > 10){
+            //    tokenStr = tokenStr.substring(0,10);
+              //  tokenStr += ".........";
+           // }
 
             tokenView.setText(tokenStr);
 
