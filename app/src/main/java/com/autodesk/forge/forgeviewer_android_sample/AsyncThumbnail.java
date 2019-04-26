@@ -4,24 +4,15 @@ import android.os.AsyncTask;
 
 import android.app.ProgressDialog;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.BufferedInputStream;
-
-
 
 
 import com.autodesk.client.ApiException;
 import com.autodesk.client.ApiResponse;
-import com.autodesk.client.model.Bucket;
-import com.autodesk.client.model.PostBucketsPayload;
 
 import java.io.File;
 import java.util.List;
@@ -32,7 +23,7 @@ import java.util.List;
 
 public class AsyncThumbnail extends AsyncTask<List<String>, String, Void> {
 
-    private MainActivity activity;
+    private ViewerActivity activity;
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
@@ -43,7 +34,7 @@ public class AsyncThumbnail extends AsyncTask<List<String>, String, Void> {
     //thumbnail bitmap
     private Bitmap thumbnailBP = null;
 
-    public AsyncThumbnail(ProgressDialog p, MainActivity a) {
+    public AsyncThumbnail(ProgressDialog p, ViewerActivity a) {
 
         this.progress = p;
         this.activity = a;

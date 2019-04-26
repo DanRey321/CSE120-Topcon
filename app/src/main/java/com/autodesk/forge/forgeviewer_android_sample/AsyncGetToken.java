@@ -4,10 +4,8 @@ package com.autodesk.forge.forgeviewer_android_sample;
  * Created by xiaodongliang on 1/18/18.
  */
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.app.ProgressDialog;
-import android.widget.Toast;
 import android.widget.TextView;
 
 
@@ -16,17 +14,14 @@ import java.util.List;
 
 
 import com.autodesk.client.ApiException;
-import com.autodesk.client.auth.Credentials;
 import com.autodesk.client.auth.OAuth2TwoLegged;
-
-import org.w3c.dom.Text;
 
 
 public class AsyncGetToken extends AsyncTask<List<String>, String, Void>  {
 
 
 
-    private MainActivity activity;
+    private ViewerActivity activity;
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
@@ -40,7 +35,7 @@ public class AsyncGetToken extends AsyncTask<List<String>, String, Void>  {
 
 
 
-    public AsyncGetToken(ProgressDialog p, MainActivity a) {
+    public AsyncGetToken(ProgressDialog p, ViewerActivity a) {
         this.progress = p;
         this.activity = a;
 

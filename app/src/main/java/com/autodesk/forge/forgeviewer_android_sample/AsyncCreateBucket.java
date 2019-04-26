@@ -6,24 +6,20 @@ package com.autodesk.forge.forgeviewer_android_sample;
 
 import android.os.AsyncTask;
 import android.app.ProgressDialog;
-import android.widget.Toast;
 import android.widget.TextView;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 import com.autodesk.client.ApiException;
 import com.autodesk.client.ApiResponse;
-import com.autodesk.client.auth.Credentials;
-import com.autodesk.client.auth.OAuth2TwoLegged;
 import com.autodesk.client.model.Bucket;
 import com.autodesk.client.model.PostBucketsPayload;
 
 public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
 
-    private MainActivity activity;
+    private ViewerActivity activity;
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
@@ -32,7 +28,7 @@ public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
     private TextView statusView = null;
 
 
-    public AsyncCreateBucket(ProgressDialog p,MainActivity a) {
+    public AsyncCreateBucket(ProgressDialog p, ViewerActivity a) {
             this.progress = p;
             this.activity = a;
 

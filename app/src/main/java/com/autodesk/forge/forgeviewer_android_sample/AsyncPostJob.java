@@ -3,7 +3,6 @@ package com.autodesk.forge.forgeviewer_android_sample;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.autodesk.client.ApiException;
 import com.autodesk.client.ApiResponse;
@@ -25,7 +24,7 @@ import java.util.List;
 
 public class AsyncPostJob extends AsyncTask<List<String>, String, Void> {
 
-    private MainActivity activity;
+    private ViewerActivity activity;
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
@@ -35,7 +34,7 @@ public class AsyncPostJob extends AsyncTask<List<String>, String, Void> {
     //text view of status
     private TextView statusView = null;
 
-    public AsyncPostJob(ProgressDialog p, MainActivity a) {
+    public AsyncPostJob(ProgressDialog p, ViewerActivity a) {
 
         this.progress = p;
         this.activity = a;

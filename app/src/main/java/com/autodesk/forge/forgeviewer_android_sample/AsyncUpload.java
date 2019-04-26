@@ -4,17 +4,14 @@ import android.os.AsyncTask;
 import android.app.ProgressDialog;
 import android.os.Environment;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.autodesk.client.ApiException;
 import com.autodesk.client.ApiResponse;
-import com.autodesk.client.auth.OAuth2TwoLegged;
 import com.autodesk.client.model.ObjectDetails;
 
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +20,7 @@ import java.util.List;
 
 public class AsyncUpload extends AsyncTask<List<String>, String, Void>  {
 
-    private MainActivity activity;
+    private ViewerActivity activity;
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
@@ -33,7 +30,7 @@ public class AsyncUpload extends AsyncTask<List<String>, String, Void>  {
     //text view of status
     private TextView statusView = null;
 
-    public AsyncUpload(ProgressDialog p, MainActivity a) {
+    public AsyncUpload(ProgressDialog p, ViewerActivity a) {
 
         this.progress = p;
         this.activity = a;
