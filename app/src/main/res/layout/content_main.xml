@@ -8,6 +8,9 @@
     tools:context="com.autodesk.forge.forgeviewer_android_sample.ViewerActivity"
     tools:showIn="@layout/activity_viewer">
 
+    tools:context1="com.autodesk.forge.forgeviewer_android_sample.Main2Activity"
+    tools:showIn="@layout/activity_viewer">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

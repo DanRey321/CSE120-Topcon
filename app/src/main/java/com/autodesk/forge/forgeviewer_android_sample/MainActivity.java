@@ -9,7 +9,7 @@ import android.content.Intent;
 public class MainActivity extends AppCompatActivity {
 
     private Button goto_viewer;
-//    private Button goto_bluetooth;
+    private Button goto_bluetooth;
 //    private Button goto_settings;
 
     @Override
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        goto_viewer = (Button)findViewById(R.id.button8);
+        goto_viewer = (Button)findViewById(R.id.button15);
         goto_viewer.setOnClickListener(new View.OnClickListener()
                                        {
                                          // @Override
@@ -28,19 +28,30 @@ public class MainActivity extends AppCompatActivity {
                                        }
         );
 
-        // yet to be implemented:
+        goto_bluetooth = (Button)findViewById(R.id.button8);
+        goto_bluetooth.setOnClickListener(new View.OnClickListener()
+                                       {
+                                           // @Override
+                                           public void onClick(View v)
+                                           {
+                                               sendBluetooth();
+                                           }
+                                       }
+        );
 
-//        goto_bluetooth = (Button)findViewById(R.id.button5);
-//        goto_bluetooth.setOnClickListener(new View.OnClickListener()
-//                                          {
-//                                              // @Override
-//                                              public void onClick(View v)
-//                                              {
-//                                                  sendBluetooth();
-//                                              }
-//                                          }
-//        );
-//
+
+/*
+        goto_bluetooth = (Button)findViewById(R.id.button5);
+        goto_bluetooth.setOnClickListener(new View.OnClickListener()
+                                          {
+                                              // @Override
+                                              public void onClick(View v)
+                                              {
+                                                  sendBluetooth();
+                                              }
+                                          }
+        );*/
+//// yet to be implemented:
 //        goto_settings = (Button)findViewById(R.id.button7);
 //        goto_settings.setOnClickListener(new View.OnClickListener()
 //                                       {
@@ -63,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
     // 'BluetoothActivity' not yet created...
     public void sendBluetooth()
     {
-        // Intent startBluetooth = new Intent(this, BluetoothActivity.class);
-        // startIntent(startBluetooth);
+        Intent startBluetooth = new Intent(this, Main2Activity.class);
+        startActivity(startBluetooth);
     }
 
     // 'SettingsActivity' not yet created...
