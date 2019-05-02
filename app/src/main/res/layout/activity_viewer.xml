@@ -6,170 +6,189 @@
     android:layout_height="match_parent"
     tools:context="com.autodesk.forge.forgeviewer_android_sample.ViewerActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnGetToken"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Get Token" />
-
-            <TextView
-                android:id="@+id/textViewToken"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:scrollbarAlwaysDrawVerticalTrack="false"
-                android:scrollbars="horizontal"
-                android:text="Token" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnCreateBucket"
-                android:layout_width="208dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Create Bucket" />
-
-            <EditText
-                android:id="@+id/textViewBucketName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="androidtestbucket"
-                android:inputType="text"
-                android:text="androidtestbucket" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnBrowserModel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Browser Model" />
-
-            <TextView
-                android:id="@+id/textViewModelName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Model Name" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnUploadModel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Upload Model" />
-
-            <TextView
-                android:id="@+id/textViewUrn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Urn" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnPostJob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Post Job" />
-
-            <TextView
-                android:id="@+id/textviewpostjob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Job Status" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnShowthumbnail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Show Thumbnail" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imgthumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="244dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/topcon" />
+        android:layout_height="match_parent"
+        android:background="@drawable/bgapp">
 
         <Button
-            android:id="@+id/btndisplaymodel"
-            android:layout_width="match_parent"
+            android:id="@+id/btnGetToken"
+            android:layout_width="311dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="1230dp"
             android:layout_weight="1"
-            android:text="Launch Viewer" />
+            android:text="Get Token" />
+
+        <TextView
+            android:id="@+id/textViewToken"
+            android:layout_width="471dp"
+            android:layout_height="51dp"
+            android:layout_above="@+id/btnCreateBucket"
+            android:layout_alignTop="@+id/btnGetToken"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="9dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbars="horizontal"
+            android:text="Token" />
+
+        <Button
+            android:id="@+id/btnCreateBucket"
+            android:layout_width="311dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="1159dp"
+            android:layout_weight="1"
+            android:text="Create Bucket" />
+
+        <EditText
+            android:id="@+id/textViewBucketName"
+            android:layout_width="477dp"
+            android:layout_height="63dp"
+            android:layout_below="@+id/textViewToken"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="1155dp"
+            android:layout_toEndOf="@+id/btnCreateBucket"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="androidtestbucket"
+            android:inputType="text"
+            android:text="androidtestbucket" />
+
+        <Button
+            android:id="@+id/btnBrowserModel"
+            android:layout_width="309dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="1089dp"
+            android:layout_weight="1"
+            android:text="Browser Model" />
+
+        <TextView
+            android:id="@+id/textViewModelName"
+            android:layout_width="480dp"
+            android:layout_height="57dp"
+            android:layout_above="@+id/textViewUrn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/btnBrowserModel"
+            android:layout_weight="1"
+            android:text="Model Name" />
+
+        <Button
+            android:id="@+id/btnUploadModel"
+            android:layout_width="311dp"
+            android:layout_height="63dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="1019dp"
+            android:layout_weight="1"
+            android:text="Upload Model" />
+
+        <TextView
+            android:id="@+id/textViewUrn"
+            android:layout_width="482dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="1021dp"
+            android:layout_weight="1"
+            android:text="Urn" />
+
+        <Button
+            android:id="@+id/btnPostJob"
+            android:layout_width="311dp"
+            android:layout_height="65dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="944dp"
+            android:layout_weight="1"
+            android:text="Post Job" />
+
+        <TextView
+            android:id="@+id/textviewpostjob"
+            android:layout_width="482dp"
+            android:layout_height="65dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="945dp"
+            android:layout_toEndOf="@+id/btnPostJob"
+            android:layout_weight="1"
+            android:text="Job Status" />
 
         <EditText
             android:id="@+id/textViewStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="883dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textMultiLine" />
 
         <Button
-            android:id="@+id/ViewerTest"
+            android:id="@+id/btnShowthumbnail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="817dp"
             android:layout_weight="1"
-            android:text="@string/main_menu" />
+            android:text="Show Thumbnail" />
 
-    </android.support.design.widget.AppBarLayout>
+        <Button
+            android:id="@+id/btndisplaymodel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="407dp"
+            android:layout_weight="1"
+            android:text="Launch Viewer" />
 
+        <ImageView
+            android:id="@+id/imgthumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="307dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="484dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/topcon" />
+
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

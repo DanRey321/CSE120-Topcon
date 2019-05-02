@@ -44,7 +44,7 @@ public class ViewerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewer);
-
+/*
         goto_butt = (Button)findViewById(R.id.ViewerTest);
         goto_butt.setOnClickListener(new View.OnClickListener() {
                                          // @Override
@@ -53,6 +53,7 @@ public class ViewerActivity extends AppCompatActivity {
                                          }
                                      }
         );
+        */
 
         btn_get_token = (Button)findViewById(R.id.btnGetToken);
         btn_get_token.setOnClickListener(new View.OnClickListener() {
@@ -73,16 +74,20 @@ public class ViewerActivity extends AppCompatActivity {
                 }
             }
         });
-
+// Change include token inside create bucket. Must be before
         btn_create_bucket = (Button)findViewById(R.id.btnCreateBucket);
         btn_create_bucket.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 try {
-
                     ProgressDialog progress = new ProgressDialog(ViewerActivity.this);
-                    AsyncCreateBucket task_createtoken =  new AsyncCreateBucket(progress, ViewerActivity.this);
+                    AsyncGetToken task_gettoken =  new AsyncGetToken(progress, ViewerActivity.this);
+                    task_gettoken.execute();
+                    /*
+                    ProgressDialog progress2 = new ProgressDialog(ViewerActivity.this);
+                    AsyncCreateBucket task_createtoken =  new AsyncCreateBucket(progress2, ViewerActivity.this);
                     task_createtoken.execute();
+                    */
                 }
                 catch(Exception ex){
 
@@ -113,6 +118,11 @@ public class ViewerActivity extends AppCompatActivity {
                 ProgressDialog progress = new ProgressDialog(ViewerActivity.this);
                 AsyncUpload task_upload =  new AsyncUpload(progress, ViewerActivity.this);
                  task_upload.execute();
+                /*
+                ProgressDialog progress2 = new ProgressDialog(ViewerActivity.this);
+                AsyncPostJob task_post_job =  new AsyncPostJob(progress2, ViewerActivity.this);
+                task_post_job.execute();
+                */
 
             }
         });
