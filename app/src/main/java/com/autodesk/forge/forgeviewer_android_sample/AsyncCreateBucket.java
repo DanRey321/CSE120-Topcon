@@ -38,7 +38,7 @@ public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
             statusView = (TextView)activity.findViewById(R.id.textViewStatus);
 
     }
-    
+
 
         public void onPreExecute() {
             progress.show();

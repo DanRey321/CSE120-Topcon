@@ -80,14 +80,15 @@ public class ViewerActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 try {
+                    /*
                     ProgressDialog progress = new ProgressDialog(ViewerActivity.this);
                     AsyncGetToken task_gettoken =  new AsyncGetToken(progress, ViewerActivity.this);
                     task_gettoken.execute();
-                    /*
+                    */
                     ProgressDialog progress2 = new ProgressDialog(ViewerActivity.this);
                     AsyncCreateBucket task_createtoken =  new AsyncCreateBucket(progress2, ViewerActivity.this);
                     task_createtoken.execute();
-                    */
+
                 }
                 catch(Exception ex){
 
