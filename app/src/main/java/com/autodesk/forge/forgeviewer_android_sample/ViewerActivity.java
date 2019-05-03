@@ -117,7 +117,7 @@ public class ViewerActivity extends AppCompatActivity {
 
                 ProgressDialog progress = new ProgressDialog(ViewerActivity.this);
                 AsyncUpload task_upload =  new AsyncUpload(progress, ViewerActivity.this);
-                 task_upload.execute();
+                task_upload.execute();
                 /*
                 ProgressDialog progress2 = new ProgressDialog(ViewerActivity.this);
                 AsyncPostJob task_post_job =  new AsyncPostJob(progress2, ViewerActivity.this);

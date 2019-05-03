@@ -20,10 +20,13 @@ import com.autodesk.client.model.PostBucketsPayload;
 public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
 
     private ViewerActivity activity;
+
+
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
     private ProgressDialog progress;
+
     //text view of status
     private TextView statusView = null;
 
@@ -34,9 +37,8 @@ public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
 
             statusView = (TextView)activity.findViewById(R.id.textViewStatus);
 
-
-
     }
+    
 
         public void onPreExecute() {
             progress.show();

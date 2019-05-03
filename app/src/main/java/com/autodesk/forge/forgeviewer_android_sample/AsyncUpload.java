@@ -21,14 +21,19 @@ import java.util.List;
 public class AsyncUpload extends AsyncTask<List<String>, String, Void>  {
 
     private ViewerActivity activity;
+    //
+
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
     private ProgressDialog progress;
+    //private ProgressDialog progress2;
+
     //text view of urn
     private TextView urnView = null;
     //text view of status
     private TextView statusView = null;
+
 
     public AsyncUpload(ProgressDialog p, ViewerActivity a) {
 

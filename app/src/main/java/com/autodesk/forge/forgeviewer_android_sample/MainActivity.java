@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button goto_viewer;
     private Button goto_bluetooth;
-//    private Button goto_settings;
+    private Button goto_converter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,18 +51,19 @@ public class MainActivity extends AppCompatActivity {
                                               }
                                           }
         );*/
-//// yet to be implemented:
-//        goto_settings = (Button)findViewById(R.id.button7);
-//        goto_settings.setOnClickListener(new View.OnClickListener()
-//                                       {
-//                                           // @Override
-//                                           public void onClick(View v)
-//                                           {
-//                                               sendSettings();
-//                                           }
-//                                       }
-//        );
+
+        goto_converter = (Button)findViewById(R.id.button9);
+        goto_converter.setOnClickListener(new View.OnClickListener() {
+            // @Override
+            public void onClick(View v) {
+                sendConverter();
+            }
+                                          }
+        );
+
+
     }
+
 
 
     public void sendViewer()
@@ -79,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 'SettingsActivity' not yet created...
-    public void sendSettings()
+    public void sendConverter()
     {
-        // Intent startSettings = new Intent(this, SettingsActivity.class);
-        // startIntent(startSettings);
+         Intent startSettings = new Intent(this, Main3Activity.class);
+         startActivity(startSettings);
     }
 }
