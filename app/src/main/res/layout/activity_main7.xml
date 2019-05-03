@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="155dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="124dp"
+        android:text="@string/action_bluetooth"
+        android:onClick="sendBluetooth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="155dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/action_viewer"
+        android:onClick="sendViewer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="155dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/action_settings"
+        android:onClick="sendSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
+</android.support.constraint.ConstraintLayout>

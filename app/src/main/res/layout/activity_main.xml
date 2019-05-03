@@ -1,174 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.autodesk.forge.forgeviewer_android_sample.MainActivity">
+    android:textColor="@android:color/white"
+    android:background="@drawable/bgapp"
+    tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <LinearLayout
+        android:layout_width="1247dp"
+        android:layout_height="1037dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnGetToken"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Get Token" />
+        <RelativeLayout
+            android:layout_width="710dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginRight="5dp">
 
             <TextView
-                android:id="@+id/textViewToken"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:scrollbarAlwaysDrawVerticalTrack="false"
-                android:scrollbars="horizontal"
-                android:text="Token" />
-        </LinearLayout>
+                android:id="@+id/txtdashboard"
+                android:layout_width="436dp"
+                android:layout_height="93dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="274dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:text="My Menu"
+                android:textColor="#FFFFFF"
+                android:textSize="70sp" />
 
-        <LinearLayout
+        </RelativeLayout>
+
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="676dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="1"
+            android:columnOrderPreserved="false"
+            android:rowCount="3">
 
-            <Button
-                android:id="@+id/btnCreateBucket"
-                android:layout_width="208dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Create Bucket" />
-
-            <EditText
-                android:id="@+id/textViewBucketName"
+            <android.support.v7.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="androidtestbucket"
-                android:inputType="text"
-                android:text="androidtestbucket" />
+                android:layout_height="5dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="1dp"
+                app:cardElevation="1dp">
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/bluetooth" />
 
-            <Button
-                android:id="@+id/btnBrowserModel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Browser Model" />
+                    <Button
+                        android:id="@+id/button8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="sendViewer"
+                        android:text="Go to Page" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-            <TextView
-                android:id="@+id/textViewModelName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Model Name" />
-        </LinearLayout>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnUploadModel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Upload Model" />
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/convertf" />
 
-            <TextView
-                android:id="@+id/textViewUrn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Urn" />
+                    <Button
+                        android:id="@+id/button9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-        </LinearLayout>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="192dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnPostJob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Post Job" />
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/viewer" />
 
-            <TextView
-                android:id="@+id/textviewpostjob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Job Status" />
-        </LinearLayout>
+                    <Button
+                        android:id="@+id/button15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+                </LinearLayout>
 
-            <Button
-                android:id="@+id/btnShowthumbnail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Show Thumbnail" />
+            </android.support.v7.widget.CardView>
 
-        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgthumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="244dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/topcon" />
+        </GridLayout>
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/btndisplaymodel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Launch Viewer" />
-
-        <EditText
-            android:id="@+id/textViewStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textMultiLine" />
-
-        <Button
-            android:id="@+id/ViewerTest"
-            android:layout_width="288dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ViewerTest" />
-
-    </android.support.design.widget.AppBarLayout>
-
-</android.support.design.widget.CoordinatorLayout>
+</android.support.constraint.ConstraintLayout>
