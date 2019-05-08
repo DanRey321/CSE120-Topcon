@@ -54,7 +54,7 @@ public class ViewerActivity extends AppCompatActivity {
                                      }
         );
 
-        btn_get_token = (Button)findViewById(R.id.btnGetToken);
+        btn_get_token = (Button)findViewById(R.id.btnGetToken1);
         btn_get_token.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -74,7 +74,7 @@ public class ViewerActivity extends AppCompatActivity {
             }
         });
 
-        btn_create_bucket = (Button)findViewById(R.id.btnCreateBucket);
+        btn_create_bucket = (Button)findViewById(R.id.btnCreateBucket1);
         btn_create_bucket.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -94,7 +94,7 @@ public class ViewerActivity extends AppCompatActivity {
             }
         });
 
-        btn_browser_model = (Button)findViewById(R.id.btnBrowserModel);
+        btn_browser_model = (Button)findViewById(R.id.btnBrowserModel1);
         btn_browser_model.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -103,7 +103,7 @@ public class ViewerActivity extends AppCompatActivity {
             }
         });
 
-        btn_upload_model = (Button)findViewById(R.id.btnUploadModel);
+        btn_upload_model = (Button)findViewById(R.id.btnUploadModel1);
         btn_upload_model.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -117,7 +117,7 @@ public class ViewerActivity extends AppCompatActivity {
             }
         });
 
-        btn_post_job = (Button)findViewById(R.id.btnPostJob);
+        btn_post_job = (Button)findViewById(R.id.btnPostJob1);
         btn_post_job.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -129,7 +129,7 @@ public class ViewerActivity extends AppCompatActivity {
             }
         });
 
-        btn_show_thumbnail = (Button)findViewById(R.id.btnShowthumbnail);
+        btn_show_thumbnail = (Button)findViewById(R.id.btnShowthumbnail1);
         btn_show_thumbnail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -141,12 +141,12 @@ public class ViewerActivity extends AppCompatActivity {
             }
         });
 
-        btn_display_model = (Button)findViewById(R.id.btndisplaymodel);
+        btn_display_model = (Button)findViewById(R.id.btndisplaymodel1);
         btn_display_model.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                TextView urntxt = (TextView)findViewById(R.id.textViewUrn);
-                TextView tokentxt = (TextView)findViewById(R.id.textViewToken);
+                TextView urntxt = (TextView)findViewById(R.id.textViewUrn1);
+                TextView tokentxt = (TextView)findViewById(R.id.textViewToken1);
 
 
                 //TextView urntxt = Global.URN;
@@ -222,7 +222,7 @@ public class ViewerActivity extends AppCompatActivity {
                 builder.setItems(mFileList, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         mChosenFile = mFileList[which];
-                        TextView modelName = (TextView)findViewById(R.id.textViewModelName);
+                        TextView modelName = (TextView)findViewById(R.id.textViewModelName1);
                         modelName.setText(mChosenFile);
                     }
                 });

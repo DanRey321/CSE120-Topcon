@@ -24,6 +24,8 @@ import java.util.List;
 public class AsyncThumbnail extends AsyncTask<List<String>, String, Void> {
 
     private ViewerActivity activity;
+    private ViewerSpanish activity2;
+
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
@@ -39,10 +41,18 @@ public class AsyncThumbnail extends AsyncTask<List<String>, String, Void> {
         this.progress = p;
         this.activity = a;
 
-        statusView = (TextView)activity.findViewById(R.id.textViewStatus);
+        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
 
     }
 
+    public AsyncThumbnail(ProgressDialog p, ViewerSpanish a) {
+
+        this.progress = p;
+        this.activity2 = a;
+
+        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
+
+    }
     public void onPreExecute() {
         progress.show();
         statusView.setText("working for get thumbnail.....");

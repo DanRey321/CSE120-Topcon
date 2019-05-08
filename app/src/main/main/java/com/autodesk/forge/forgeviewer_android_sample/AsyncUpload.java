@@ -34,8 +34,8 @@ public class AsyncUpload extends AsyncTask<List<String>, String, Void>  {
 
         this.progress = p;
         this.activity = a;
-        statusView = (TextView)activity.findViewById(R.id.textViewStatus);
-        urnView = (TextView)activity.findViewById(R.id.textViewUrn);
+        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
+        urnView = (TextView)activity.findViewById(R.id.textViewUrn1);
 
 
     }
@@ -72,7 +72,7 @@ public class AsyncUpload extends AsyncTask<List<String>, String, Void>  {
         try {
 
 
-            TextView modelName = (TextView)activity.findViewById(R.id.textViewModelName);
+            TextView modelName = (TextView)activity.findViewById(R.id.textViewModelName1);
             String FILE_NAME = modelName.getText().toString();
             String FILE_PATH = Environment.getExternalStorageDirectory() + "/DCIM/" +  FILE_NAME;
 

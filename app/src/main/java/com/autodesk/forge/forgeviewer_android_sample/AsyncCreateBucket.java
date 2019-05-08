@@ -20,10 +20,15 @@ import com.autodesk.client.model.PostBucketsPayload;
 public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
 
     private ViewerActivity activity;
+    private ViewerSpanish activity2;
+
+
+
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
     private ProgressDialog progress;
+
     //text view of status
     private TextView statusView = null;
 
@@ -32,11 +37,17 @@ public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
             this.progress = p;
             this.activity = a;
 
-            statusView = (TextView)activity.findViewById(R.id.textViewStatus);
-
-
+            statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
 
     }
+    public AsyncCreateBucket(ProgressDialog p, ViewerSpanish a) {
+        this.progress = p;
+        this.activity2 = a;
+
+        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
+
+    }
+
 
         public void onPreExecute() {
             progress.show();
@@ -71,7 +82,7 @@ public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
 
                 //statusView.setText("working for create bucket.....");
 
-                TextView bucketName = (TextView)activity.findViewById(R.id.textViewBucketName);
+                TextView bucketName = (TextView)activity.findViewById(R.id.textViewBucketName1);
 
                 String BUCKET_KEY = bucketName.getText().toString();
                 //reset the bucket key with user input

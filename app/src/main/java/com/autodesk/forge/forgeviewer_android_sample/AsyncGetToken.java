@@ -22,10 +22,13 @@ public class AsyncGetToken extends AsyncTask<List<String>, String, Void>  {
 
 
     private ViewerActivity activity;
+    private ViewerSpanish activity2;
+
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
     private ProgressDialog progress;
+    private ProgressDialog progress2;
 
     //text view of token
     private TextView tokenView = null;
@@ -35,12 +38,20 @@ public class AsyncGetToken extends AsyncTask<List<String>, String, Void>  {
 
 
 
-    public AsyncGetToken(ProgressDialog p, ViewerActivity a) {
+    public AsyncGetToken(ProgressDialog p, ViewerActivity a ) {
         this.progress = p;
         this.activity = a;
 
-        statusView = (TextView)activity.findViewById(R.id.textViewStatus);
-        tokenView = (TextView)activity.findViewById(R.id.textViewToken);
+        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
+        tokenView = (TextView)activity.findViewById(R.id.textViewToken1);
+    }
+    //For Model Derivative Changer
+    public AsyncGetToken(ProgressDialog p, ViewerSpanish a) {
+        this.progress = p;
+        this.activity2 = a;
+
+        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
+        tokenView = (TextView)activity.findViewById(R.id.textViewToken1);
     }
 
     public void onPreExecute() {

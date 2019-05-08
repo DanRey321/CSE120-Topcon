@@ -38,8 +38,8 @@ public class AsyncPostJob extends AsyncTask<List<String>, String, Void> {
 
         this.progress = p;
         this.activity = a;
-        statusView = (TextView)activity.findViewById(R.id.textViewStatus);
-        jobProgressView = (TextView)activity.findViewById(R.id.textviewpostjob);
+        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
+        jobProgressView = (TextView)activity.findViewById(R.id.textviewpostjob1);
 
     }
 

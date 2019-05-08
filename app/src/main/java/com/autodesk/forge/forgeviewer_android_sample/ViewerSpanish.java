@@ -29,7 +29,7 @@ import android.widget.Toast;
 import java.io.*;
 
 
-public class ViewerActivity extends AppCompatActivity {
+public class ViewerSpanish extends AppCompatActivity {
 
     private Button btn_get_token;
     private Button btn_create_bucket;
@@ -43,7 +43,7 @@ public class ViewerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viewer);
+        setContentView(R.layout.activity_main7);
 /*
         goto_butt = (Button)findViewById(R.id.ViewerTest);
         goto_butt.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +61,8 @@ public class ViewerActivity extends AppCompatActivity {
 
                 try {
 
-                    ProgressDialog progress = new ProgressDialog(ViewerActivity.this);
-                    AsyncGetToken task_gettoken =  new AsyncGetToken(progress, ViewerActivity.this);
+                    ProgressDialog progress = new ProgressDialog(ViewerSpanish.this);
+                    AsyncGetToken task_gettoken =  new AsyncGetToken(progress, ViewerSpanish.this);
                     task_gettoken.execute();
                 }
                 catch(Exception ex){
@@ -85,8 +85,8 @@ public class ViewerActivity extends AppCompatActivity {
                     AsyncGetToken task_gettoken =  new AsyncGetToken(progress, ViewerActivity.this);
                     task_gettoken.execute();
                     */
-                    ProgressDialog progress2 = new ProgressDialog(ViewerActivity.this);
-                    AsyncCreateBucket task_createtoken =  new AsyncCreateBucket(progress2, ViewerActivity.this);
+                    ProgressDialog progress2 = new ProgressDialog(ViewerSpanish.this);
+                    AsyncCreateBucket task_createtoken =  new AsyncCreateBucket(progress2, ViewerSpanish.this);
                     task_createtoken.execute();
 
                 }
@@ -116,8 +116,8 @@ public class ViewerActivity extends AppCompatActivity {
                 if (mChosenFile==null || mChosenFile=="")
                     return;
 
-                ProgressDialog progress = new ProgressDialog(ViewerActivity.this);
-                AsyncUpload task_upload =  new AsyncUpload(progress, ViewerActivity.this);
+                ProgressDialog progress = new ProgressDialog(ViewerSpanish.this);
+                AsyncUpload task_upload =  new AsyncUpload(progress, ViewerSpanish.this);
                 task_upload.execute();
                 /*
                 ProgressDialog progress2 = new ProgressDialog(ViewerActivity.this);
@@ -133,9 +133,9 @@ public class ViewerActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                ProgressDialog progress = new ProgressDialog(ViewerActivity.this);
-                AsyncPostJob task_post_job =  new AsyncPostJob(progress, ViewerActivity.this);
-                 task_post_job.execute();
+                ProgressDialog progress = new ProgressDialog(ViewerSpanish.this);
+                AsyncPostJob task_post_job =  new AsyncPostJob(progress, ViewerSpanish.this);
+                task_post_job.execute();
 
             }
         });
@@ -145,9 +145,9 @@ public class ViewerActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                ProgressDialog progress = new ProgressDialog(ViewerActivity.this);
-                AsyncThumbnail task_thumbnail =  new AsyncThumbnail(progress, ViewerActivity.this);
-                 task_thumbnail.execute();
+                ProgressDialog progress = new ProgressDialog(ViewerSpanish.this);
+                AsyncThumbnail task_thumbnail =  new AsyncThumbnail(progress, ViewerSpanish.this);
+                task_thumbnail.execute();
 
             }
         });
@@ -197,9 +197,9 @@ public class ViewerActivity extends AppCompatActivity {
 
         //String xx = Environment.getExternalStorageDirectory() + "/";
         File mPath = new File(Environment.getExternalStorageDirectory() + "/DCIM/" );//+
-                //getApplicationContext().getString(R.string.app_name));
+        //getApplicationContext().getString(R.string.app_name));
 
-         try {
+        try {
             mPath.mkdirs();
         } catch (SecurityException e) {
             //Log.e(TAG, "unable to write on the sd card " + e.toString());
@@ -255,7 +255,7 @@ public class ViewerActivity extends AppCompatActivity {
     //conserve in case of use.
     private void grantPermission(String p)
     {
-         int REQUEST_CODE_ASK_PERMISSIONS = 124;
+        int REQUEST_CODE_ASK_PERMISSIONS = 124;
 
 
         int hasWriteContactsPermission = ContextCompat.checkSelfPermission(

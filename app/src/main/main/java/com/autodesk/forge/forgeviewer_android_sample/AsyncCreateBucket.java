@@ -32,7 +32,7 @@ public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
             this.progress = p;
             this.activity = a;
 
-            statusView = (TextView)activity.findViewById(R.id.textViewStatus);
+            statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
 
 
 
@@ -71,7 +71,7 @@ public class AsyncCreateBucket extends AsyncTask<List<String>, String, Void>  {
 
                 //statusView.setText("working for create bucket.....");
 
-                TextView bucketName = (TextView)activity.findViewById(R.id.textViewBucketName);
+                TextView bucketName = (TextView)activity.findViewById(R.id.textViewBucketName1);
 
                 String BUCKET_KEY = bucketName.getText().toString();
                 //reset the bucket key with user input

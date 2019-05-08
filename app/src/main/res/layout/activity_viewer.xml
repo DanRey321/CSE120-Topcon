@@ -1,58 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgapp"
     tools:context="com.autodesk.forge.forgeviewer_android_sample.ViewerActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="65dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnGetToken"
-                android:layout_width="match_parent"
+                android:id="@+id/btnGetToken1"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Get Token" />
+                android:text="Access Key" />
 
             <TextView
-                android:id="@+id/textViewToken"
-                android:layout_width="match_parent"
+                android:id="@+id/textViewToken1"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:scrollbarAlwaysDrawVerticalTrack="false"
-                android:scrollbars="horizontal"
                 android:text="Token" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="65dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnCreateBucket"
-                android:layout_width="208dp"
+                android:id="@+id/btnCreateBucket1"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Create Bucket" />
+                android:text="Create Storage" />
 
             <EditText
-                android:id="@+id/textViewBucketName"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewBucketName1"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -64,63 +63,59 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="65dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnBrowserModel"
-                android:layout_width="match_parent"
+                android:id="@+id/btnBrowserModel1"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Browser Model" />
 
             <TextView
-                android:id="@+id/textViewModelName"
-                android:layout_width="match_parent"
+                android:id="@+id/textViewModelName1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Model Name" />
+                android:text="Search" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="65dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnUploadModel"
-                android:layout_width="match_parent"
+                android:id="@+id/btnUploadModel1"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Upload Model" />
 
             <TextView
-                android:id="@+id/textViewUrn"
-                android:layout_width="match_parent"
+                android:id="@+id/textViewUrn1"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Urn" />
-
+                android:text="URN" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="65dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnPostJob"
-                android:layout_width="match_parent"
+                android:id="@+id/btnPostJob1"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Post Job" />
+                android:text="Translate Model" />
 
             <TextView
-                android:id="@+id/textviewpostjob"
-                android:layout_width="match_parent"
+                android:id="@+id/textviewpostjob1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Job Status" />
@@ -128,48 +123,50 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/textViewStatus1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnShowthumbnail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/btnShowthumbnail1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Show Thumbnail" />
-
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imgthumbnail"
             android:layout_width="match_parent"
-            android:layout_height="244dp"
-            android:layout_weight="1"
+            android:layout_height="289dp"
+            android:adjustViewBounds="false"
             app:srcCompat="@drawable/topcon" />
 
-        <Button
-            android:id="@+id/btndisplaymodel"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Launch Viewer" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/textViewStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textMultiLine" />
-
-        <Button
-            android:id="@+id/ViewerTest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/main_menu" />
-
-    </android.support.design.widget.AppBarLayout>
-
-</android.support.design.widget.CoordinatorLayout>
+            <Button
+                android:id="@+id/btndisplaymodel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Display Model" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

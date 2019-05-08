@@ -16,39 +16,25 @@ import java.util.Set;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private Button button;
     Button b1,b2,b3,b4;
     private BluetoothAdapter BA;
-    private Set<BluetoothDevice> pairedDevices;
+    private Set<BluetoothDevice>pairedDevices;
     ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-
+        setContentView(R.layout.activity_bluetooth);
         b1 = (Button) findViewById(R.id.button);
-        b2 = (Button) findViewById(R.id.button2);
-        b3 = (Button) findViewById(R.id.button3);
-        b4 = (Button) findViewById(R.id.button4);
+        b2=(Button)findViewById(R.id.button2);
+        b3=(Button)findViewById(R.id.button3);
+        b4=(Button)findViewById(R.id.button4);
 
         BA = BluetoothAdapter.getDefaultAdapter();
         lv = (ListView)findViewById(R.id.listView);
 
-
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                openActivity();
-            }
-        });
     }
 
-    public void openActivity(){
-        Intent intent = new Intent(this, ViewerActivity.class);
-        startActivity(intent);
-    }
     public void on(View v)
     {
         if (!BA.isEnabled()) {

@@ -18,47 +18,36 @@ import org.apache.commons.codec.binary.Base64;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by xiaodongliang on 1/21/18.
- */
 
-public class AsyncPostJob extends AsyncTask<List<String>, String, Void> {
+public class AsyncConverter extends AsyncTask<List<String>, String, Void> {
 
-    private ViewerActivity activity;
-    private ViewerSpanish activity2;
+
+    private Main3Activity activity2;
 
     //indicate whether the task completed
     private  String responseStr = "";
     //initialize progress dialog
-    private ProgressDialog progress;
-    //private ProgressDialog progress2;
+
+    private ProgressDialog progress2;
 
     //text view of job progress
     private TextView jobProgressView = null;
     //text view of status
     private TextView statusView = null;
 
-    public AsyncPostJob(ProgressDialog p, ViewerActivity a) {
 
-        this.progress = p;
-        this.activity = a;
-        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
-        jobProgressView = (TextView)activity.findViewById(R.id.textviewpostjob1);
+    public AsyncConverter(ProgressDialog p, Main3Activity a) {
 
-    }
-    public AsyncPostJob(ProgressDialog p, ViewerSpanish a) {
-
-        this.progress = p;
+        this.progress2 = p;
         this.activity2 = a;
-        statusView = (TextView)activity.findViewById(R.id.textViewStatus1);
-        jobProgressView = (TextView)activity.findViewById(R.id.textviewpostjob1);
+        statusView = (TextView)activity2.findViewById(R.id.textViewStatus1);
+        jobProgressView = (TextView)activity2.findViewById(R.id.textviewpostjob1);
 
     }
-
 
     public void onPreExecute() {
 
-        progress.show();
+        progress2.show();
 
         statusView.setText("working for post job.....");
 
@@ -67,7 +56,7 @@ public class AsyncPostJob extends AsyncTask<List<String>, String, Void> {
     // task completed
     public void onPostExecute(Void unused) {
 
-        progress.dismiss();
+        progress2.dismiss();
 
 //        Toast.makeText(
 //                _activity.getApplicationContext(),
@@ -140,7 +129,7 @@ public class AsyncPostJob extends AsyncTask<List<String>, String, Void> {
                     publishProgress(values);
                 }
                 else{
-                     Thread.sleep(2000);
+                    Thread.sleep(2000);
 
                     values[0]= "Started to translate...";
                     values[1]= "Progress:" + response_status.getData().getProgress();
