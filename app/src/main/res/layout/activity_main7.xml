@@ -2,40 +2,195 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/bgapp"
+    tools:context="com.autodesk.forge.forgeviewer_android_sample.SpanishViewer">
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="155dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="124dp"
-        android:text="@string/action_bluetooth"
-        android:onClick="sendBluetooth"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="155dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="72dp"
-        android:text="@string/action_viewer"
-        android:onClick="sendViewer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="155dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="72dp"
-        android:text="@string/action_settings"
-        android:onClick="sendSettings"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+            <TextView
+                android:id="@+id/button7"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#DAD9D9"
+                android:text=" Obtener clave de acceso"
+                android:textAlignment="center"
+                android:textColor="#1A0303"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textViewToken"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Token" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button10"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#DAD9D9"
+                android:text="Crear memoria "
+                android:textAlignment="center"
+                android:textColor="#FD0F0101"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/textViewBucketName"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="androidtestbucket"
+                android:inputType="text"
+                android:text="androidtestbucket" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button11"
+                android:layout_width="21dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#DAD9D9"
+                android:text="Encontra el objeto "
+                android:textAlignment="center"
+                android:textColor="#FA1A0101"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textViewModelName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button12"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#DAD9D9"
+                android:text="Subir el objeto "
+                android:textAlignment="center"
+                android:textColor="#FC0C0505"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textViewUrn"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="URN" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button13"
+                android:layout_width="46dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#DAD9D9"
+                android:text="Traducir objeto "
+                android:textAlignment="center"
+                android:textColor="#FC0C0202"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textviewpostjob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Job Status" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/textViewStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+
+        <TextView
+            android:id="@+id/button14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#DAD9D9"
+            android:text="Mostra miniatura "
+            android:textAlignment="center"
+            android:textColor="#FC070606"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imgthumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="289dp"
+            android:adjustViewBounds="false"
+            app:srcCompat="@drawable/topcon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+
+        <TextView
+            android:id="@+id/button16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#DAD9D9"
+            android:text="Mostra el objeto "
+            android:textAlignment="center"
+            android:textColor="#F8090808"
+            android:textSize="24sp" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

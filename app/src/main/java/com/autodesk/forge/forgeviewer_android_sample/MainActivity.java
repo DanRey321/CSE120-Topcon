@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         goto_converter.setOnClickListener(new View.OnClickListener() {
             // @Override
             public void onClick(View v) {
-                sendConverter();
+                sendSettings();
             }
                                           }
         );
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 'SettingsActivity' not yet created...
-    public void sendConverter()
+    public void sendSettings()
     {
          Intent startSettings = new Intent(this, Main3Activity.class);
          startActivity(startSettings);

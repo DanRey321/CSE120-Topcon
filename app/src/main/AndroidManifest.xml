@@ -37,9 +37,15 @@
         </activity>
         <activity android:name=".Main2Activity" />
         <activity android:name=".Main3Activity" />
+        <activity android:name=".FAQ" />
 
         <activity
             android:name=".ViewerActivity">
+
+
+        </activity>
+        <activity
+            android:name=".SpanishViewer">
 
 
         </activity>
