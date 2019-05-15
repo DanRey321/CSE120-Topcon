@@ -14,6 +14,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Set;
 
+/**
+ *Daniel Reyes
+ * 4/28/2019
+ */
+
 public class Main2Activity extends AppCompatActivity {
 
     Button b1,b2,b3,b4;

@@ -18,9 +18,9 @@ import java.io.File;
 import java.util.List;
 
 /**
- * Created by xiaodongliang on 1/21/18.
+ *Daniel Reyes Adapted from xiaodongliang open source code
+ * 4/28/2019
  */
-
 public class AsyncThumbnail extends AsyncTask<List<String>, String, Void> {
 
     private ViewerActivity activity;

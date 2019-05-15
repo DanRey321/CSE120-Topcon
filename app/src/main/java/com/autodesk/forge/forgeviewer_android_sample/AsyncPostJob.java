@@ -19,7 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by xiaodongliang on 1/21/18.
+ *Daniel Reyes Adapted from xiaodongliang open source code
+ * 4/28/2019
  */
 
 public class AsyncPostJob extends AsyncTask<List<String>, String, Void> {

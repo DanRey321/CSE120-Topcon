@@ -7,8 +7,10 @@ import com.autodesk.client.auth.Credentials;
 import com.autodesk.client.auth.OAuth2TwoLegged;
 
 /**
- * Created by xiaodongliang on 1/18/18.
+ *Daniel Reyes Adapted from xiaodongliang open source code
+ * 4/28/2019
  */
+
 
 public class Global {
 

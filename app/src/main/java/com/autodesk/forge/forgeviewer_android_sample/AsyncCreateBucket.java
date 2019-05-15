@@ -1,7 +1,7 @@
 package com.autodesk.forge.forgeviewer_android_sample;
-
 /**
- * Created by xiaodongliang on 1/18/18.
+ *Daniel Reyes Adapted from xiaodongliang open source code
+ * 4/28/2019
  */
 
 import android.os.AsyncTask;

@@ -28,6 +28,11 @@ import android.widget.Toast;
 
 import java.io.*;
 
+/**
+ *Daniel Reyes Adapted from xiaodongliang open source code
+ * 4/28/2019
+ */
+
 
 public class ViewerActivity extends AppCompatActivity {
 
